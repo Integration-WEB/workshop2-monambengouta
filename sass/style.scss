@@ -1,0 +1,27 @@
+@import "mixins";
+$langages:"HTML5","CSS3","JAVA","REACT";
+$background: #ff0000;
+.text{
+  background-color:$background ;
+  color: background($background);
+  font-size: 20px;
+}
+textarea,h1{
+    @extend .text;
+}
+.btn {
+  @include border();
+}
+@function background($color_back){
+  @if($color_back!=#ffffff){
+    @return #ffffff;
+  }@else {
+    @return #000000;
+  }
+}
+@function first(){
+  @return nth($langages,0);
+}
+@function last(){
+  @return nth($langages,length($langages));
+}
